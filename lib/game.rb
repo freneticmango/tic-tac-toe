@@ -4,24 +4,33 @@ require 'pry-byebug'
 class Game 
 
   def initialize(game_board, players)
+
     @game_board = game_board
     @players = players
+
   end
 
   #gets input from the player to select player token placement
   def get_player_choice(player)
 
+    puts ""
     puts "#{player.name}, please input a board position."
+    puts ""
     
     input = gets.chomp.to_i
 
     until @game_board.board.include?(input)
+      puts ""
       puts "#{player.name}, please input a valid board position."
+      puts ""
+
       input = gets.chomp.to_i
+
     end
 
     index = @game_board.board.find_index(input)
     @game_board.board[index] = player.token
+
   end
 
   #displays the board and gets player input for each player. loop breaks and winner is announced if a winner is detected.
@@ -32,7 +41,11 @@ class Game
       get_player_choice(player)
 
       if @game_board.winner?(@players)
+
+        puts ""
         puts "#{@game_board.get_winner(@players)} wins!"
+        puts ""
+        
         break
       end
     end
@@ -44,7 +57,5 @@ class Game
       play_round
     end
   end
-
-  
 
 end

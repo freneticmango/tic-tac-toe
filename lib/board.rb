@@ -20,12 +20,10 @@ class Board
   def get_winner(players)
     WINNING_POSITIONS.any? do |combo|
       board_to_check = combo.map { |i| @board[i] }
-      if board_to_check.all? { |position| position == players[0].token }
+      if board_to_check.all? { |position| position == players[0].token } 
         return players[0].name
       elsif board_to_check.all? { |position| position == players[1].token }
-        return players[1].name
-      else
-        false
+         return players[1].name
       end
     end
   end
