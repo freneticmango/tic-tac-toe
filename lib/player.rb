@@ -1,6 +1,9 @@
+require 'pry-byebug'
+
+#player class holds player name and token. class instances build an array of players for use by other classes.
 class Player
 
-  attr_accessor :name, :token
+  attr_accessor :name, :token, :players
   
   @@players = []
 

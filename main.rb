@@ -9,10 +9,8 @@ o_player = Player.new("O Player", "O")
 
 player_list = Player.players
 
-board = Board.new(player_list)
+board = Board.new
 
-game = Game.new(player_list, board)
+game = Game.new(board, player_list)
 
-binding.pry
-
-puts "meep"
+game.play_game
