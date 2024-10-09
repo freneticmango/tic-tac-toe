@@ -17,21 +17,29 @@ class Board
     @board = array.each_with_index.map { |value, index| index + 1}
   end
 
-  def winner?(player)
+  def get_winner
     WINNING_POSITIONS.any? do |combo|
       board_to_check = combo.map { |i| @board[i] }
-      board_to_check.all?(player.token)
+      if board_to_check.all? { |position| position == @players[0].token }
+        return @players[0].name
+      elsif board_to_check.all? { |position| position == @players[1].token }
+        return @players[1].name
+      else
+        false
+      end
     end
   end
 
 
   #displays the board in 3x3 tic tac toe format
   def display_board
+    puts ""
     puts "#{@board[0]} | #{@board[1]} | #{@board[2]}"
     puts "----------"
     puts "#{@board[3]} | #{@board[4]} | #{@board[5]}"
     puts "----------"
     puts "#{@board[6]} | #{@board[7]} | #{@board[8]}"
+    puts ""
   end
 end
     

@@ -9,10 +9,9 @@ o_player = Player.new("O Player", "O")
 
 player_list = Player.players
 
-new_board = Board.new(player_list)
-game_board = new_board.board
+board = Board.new(player_list)
 
-game = Game.new(player_list, game_board)
+game = Game.new(player_list, board)
 
 binding.pry
 
