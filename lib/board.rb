@@ -28,8 +28,14 @@ class Board
     end
   end
 
+  #boolean method returns true if a winner is detected, false otherwise
   def winner?(players)
     get_winner(players)
+  end
+
+  #boolean method returns true if there are no integers left on the board, false otherwise
+  def tie?
+    @board.none? {|val| val.is_a?(Integer)}
   end
 
   #displays the board in 3x3 tic tac toe format
